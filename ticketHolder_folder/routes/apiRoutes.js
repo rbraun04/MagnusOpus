@@ -4,8 +4,8 @@
 // These data sources hold arrays of information on table-data, waitinglist, etc.
 // ===============================================================================
 
-var seatData = require("../data/seatData");
-var waitListData = require("../data/waitinglistData");
+var seatData = require("../../data/seatData");
+var waitListData = require("../../data/waitinglistData");
 
 
 // ===============================================================================

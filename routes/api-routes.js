@@ -1,6 +1,7 @@
 const router = require("express").Router();
 var seatData = require("../data/seatData");
 var waitListData = require("../data/waitinglistData");
+const db = require("../models")
 
 
 
@@ -85,5 +86,9 @@ router.get("/api/vendors/:vendor", function(req, res) {
     res.json(newVendor);
   });
 
+  router.get("/api/seed/ticketing", (req,res)=> {
+    db.Ticketing.bulkCreate(seatData)
+    .then(response => res.json("ticketing seeded!"))
+  })
 
   module.exports = router;

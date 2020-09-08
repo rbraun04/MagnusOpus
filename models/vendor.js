@@ -4,6 +4,12 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         }
     })
-
+    Vendor.associate = function(models){
+        Vendor.belongsToMany(models.Ticketing, {
+            foreignKey: {
+                name: "reservationNumber"
+            }
+        })
+    }
     return Vendor;
 }

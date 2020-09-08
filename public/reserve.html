@@ -60,6 +60,14 @@
                 <label for="reserve-license-id">License Plate</label>
                 <input type="text" class="form-control" id="reserve-license-id">
               </div>
+              <div class="form-group">
+                <label for="reserve-license-id">Car Make</label>
+                <input type="text" class="form-control" id="reserve-car-make">
+              </div>
+              <div class="form-group">
+                <label for="reserve-license-id">Car Model</label>
+                <input type="text" class="form-control" id="reserve-car-model">
+              </div>
               <button type="submit" class="btn btn-primary submit">Submit</button>
             </form>
           </div>
@@ -97,7 +105,9 @@
       customerName: $("#reserve-name").val().trim(),
       phoneNumber: $("#reserve-phone").val().trim(),
       customerEmail: $("#reserve-email").val().trim(),
-      licenseID: $("#reserve-license-id").val().trim()
+      licenseID: $("#reserve-license-id").val().trim(),
+      carMake: $("#reserve-car-make").val().trim(),
+      carModel: $("#reserve-car-model").val().trim(),
     };
     
     console.log(newReservation);
@@ -125,6 +135,8 @@
         $("#reserve-phone").val("");
         $("#reserve-email").val("");
         $("#reserve-license-id").val("");
+        $("#reserve-car-make").val("");
+        $("#reserve-car-model").val("");
 
       });
 

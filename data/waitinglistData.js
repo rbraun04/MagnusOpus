@@ -9,8 +9,10 @@ var waitingArray = [
   {
     customerName: "Saima",
     customerEmail: "saima@example.com",
+    licenseID: "saimaCool",
     phoneNumber: "000-000-0000",
-    licenseID: "saimaCool"
+    carMake: "Nissan",
+    carModel: "Rogue"
   }
 ];
 

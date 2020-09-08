@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vendors - Drive-in Movie</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Vendors</h1>
+      <h3>Welcome to Magnum Opus</h3>
+      <hr>
+      <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> View Vendors</button></a>
+    </div>
+    <div class="row">
+
+      <div class="col-12">
+
+        <div class="card">
+          <div class="card-header">
+            <h3><strong>Add Vendors</strong></h3>
+          </div>
+          <div class="card-body">
+            <form method="POST" role="form">
+
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name">
+              </div>
+
+              <div class="form-group">
+                <label for="vendorDescription">Description</label>
+                <input type="text" class="form-control" id="vendorDescription">
+              </div>
+
+              <div class="form-group">
+                <label for="option1">Option 1</label>
+                <input type="text" class="form-control" id="option1">
+              </div>
+
+              <div class="form-group">
+                <label for="option2">Option 2</label>
+                <input type="text" class="form-control" id="option2">
+              </div>
+
+              <div class="form-group">
+                <label for="option3">Option 3</label>
+                <input type="text" class="form-control" id="option3">
+              </div>
+
+              <div class="form-group">
+                <label for="option4">Option 4</label>
+                <input type="text" class="form-control" id="option4">
+              </div>
+
+              <div class="form-group">
+                <label for="option5">Option 5</label>
+                <input type="text" class="form-control" id="option5">
+              </div>
+
+            </form>
+            <br>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span> Add vendor</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    // Question: What does this code do?
+    $("#add-btn").on("click", function(event) {
+      event.preventDefault();
+      var newVendor = {
+        name: $("#name").val().trim(),
+        vendorDescription: $("#vendorDescription").val().trim(),
+        option1: $("#option1").val().trim(),
+        option2: $("#option2").val().trim(),
+        option3: $("#option3").val().trim(),
+        option4: $("#option4").val().trim(),
+        option5: $("#option5").val().trim()
+      };
+
+      // Question: What does this code do??
+      $.post("/api/vendors", newVendor)
+        .then(function(data) {
+          console.log("add.html", data);
+          alert("Adding vendor...");
+        });
+    });
+  </script>
+
+</body>
+</html>

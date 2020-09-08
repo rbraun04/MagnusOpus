@@ -29,21 +29,8 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false
             }
-
         }
     })
-
-
-
-// id INT NOT NULL AUTO_INCREMENT,
-// name VARCHAR(30),
-// description VARCHAR(250),
-// option1 VARCHAR(150),
-// option2 VARCHAR(150),
-// option3 VARCHAR(150),
-// option4 VARCHAR(150),
-// option5 VARCHAR(150),
-// PRIMARY KEY (id)
 
     Vendor.associate = function(models){
         Vendors.belongsToMany(models.Ticketing, {

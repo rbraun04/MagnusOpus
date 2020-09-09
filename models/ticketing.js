@@ -1,47 +1,35 @@
 module.exports = (sequelize, DataTypes) => {
-    const Vendors = sequelize.define("vendor", {
+    const Tickets = sequelize.define("ticketing", {
         name: {
-            name: {
+            menuSelection: {
+                type: DataTypes.STRING,
+                allowNull: true
+            },
+            customerName: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            description: {
+            customerEmail: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            option1: {
+            customerlicenseID: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            option2: {
+            carMake: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            option3: {
+            carModel: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            option4: {
-                type: DataTypes.STRING,
-                allowNull: false
-            },
-            option5: {
-                type: DataTypes.STRING,
-                allowNull: false
-            }
         }
     })
-
-
-    Vendor.associate = function(models){
-        Vendors.belongsToMany(models.Ticketing, {
-
-            foreignKey: {
-                name: "reservationNumber"
-            }
-        })
+    Tickets.associate = function(models){
+        Tickets.hasOne(models.Vendor)
     }
-
-    return Vendors;
+    return Tickets;
 }
 

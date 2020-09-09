@@ -13,6 +13,7 @@ var waitingArray = [
     phoneNumber: "000-000-0000",
     carMake: "Nissan",
     carModel: "Rogue"
+
   }
 ];
 

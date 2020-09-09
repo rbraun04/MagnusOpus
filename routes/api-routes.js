@@ -83,7 +83,7 @@ router.get("/api/vendors/:vendor", function(req, res) {
   
     console.log(newVendor);
   
-    vendor.push(newVendor);
+    Vendors.push(newVendor);
   
     res.json(newVendor);
   });

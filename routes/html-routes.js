@@ -14,8 +14,8 @@ router.get("/addvendors", function(req, res) {
   
   // Displays all vendors
 
-router.get("/all", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/all.html"));
+router.get("/vendors", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/vendor_folder/all.html"));
 });
   
 router.get("/api/vendors", function(req, res) {

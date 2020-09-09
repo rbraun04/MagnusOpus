@@ -2,8 +2,8 @@ const router = require("express").Router();
 var seatData = require("../data/seatData");
 var waitListData = require("../data/waitinglistData");
 
-const db = require("../models")
 
+const db = require("../models");
 
 
 
@@ -60,7 +60,7 @@ const db = require("../models")
 router.get("/api/vendors/:vendor", function(req, res) {
     var chosen = req.params.vendor;
   
-    console.log("start here what is this?: ", chosen);
+    console.log("vendors", chosen);
   
     for (var i = 0; i < vendors.length; i++) {
       if (chosen === vendors[i].routeName) {

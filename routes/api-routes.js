@@ -79,13 +79,12 @@ router.get("/api/vendors/:vendor", function(req, res) {
   
     // Using a RegEx Pattern to remove spaces from newVendor
     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    newVendor.routeName = newVendor.name.replace(/\s+/g, "").toLowerCase();
   
     console.log(newVendor);
   
-    Vendors.push(newVendor);
+    db.vendor.create(newVendor).then(response => res.json("Vendor has been added"));
   
-    res.json(newVendor);
+
   });
 
 

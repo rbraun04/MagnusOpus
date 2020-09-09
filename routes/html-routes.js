@@ -29,7 +29,7 @@ router.get("/vendors", function(req, res) {
 });
   
 router.get("/api/vendors", function(req, res) {
-  db.Vendor.findAll().then(function(vendors){
+  db.vendor.findAll().then(function(vendors){
     return res.json(vendors);
     })
   });

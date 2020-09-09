@@ -42,3 +42,4 @@ module.exports = (sequelize, DataTypes) => {
     return Vendors;
 }
 
+Vendors.sync();

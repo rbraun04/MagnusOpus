@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>All Vendors</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Magnus Opus  - All vendors</h1>
+      <h3>All different types of cuisine to fulfill our customer's needs</h3>
+      <hr>
+      <a href="/searchvendors" class="btn btn-danger btn-lg">
+        <span class="fa fa-eye"></span> Search Vendors</a>
+      <a href="/addvendors" class="btn btn-danger btn-lg">
+        <span class="fa fa-plus"></span> Add New Vendor</a>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-header">
+            Vendor Database
+          </div>
+          <div class="card-body" id="well-section">
+
+            <!-- Content will go in here -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+// Code here handles what how the page displays all of the vendors
+// It pings the server. The server then pings the database and displays all of the vendors.
+
+// make a get request to our api to grab every vendors
+$.get("/api/vendors", function(data) {
+
+// for each character that our server sends us back
+for (var i = 0; i < data.length; i++) {
+  // create a parent div for the oncoming elements
+  var vendorSection = $("<div>");
+  // add a class to this div: 'well'
+  vendorSection.addClass("well");
+  // add an id to the well to mark which well it is
+  vendorSection.attr("id", "vendor-well-" + i);
+  // append the well to the well section
+  $("#well-section").append(vendorSection);
+
+  // Now add all of our character data to the well we just placed on the page
+
+  // make the name an h2,
+  $("#vendor-well-" + i).append("<h2>" + data[i].name + "</h2>");
+  // the role an h3,
+  $("#vendor-well-" + i).append("<h3>Role: " + data[i].role + "</h4>");
+  // the age an h3,
+  $("#vendor-well-" + i).append("<h3>Age: " + data[i].age + "</h4>");
+  // and the forcepoints an h3.
+  $("#vendor-well-" + i).append("<h3>Force Points: " + data[i].forcePoints + "</h4>");
+}
+});
+
+</script>
+
+</body>
+
+</html>

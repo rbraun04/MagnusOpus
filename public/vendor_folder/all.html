@@ -3,7 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>All Vendors</title>
+
+  <title>Magnus Opus</title>
+
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,8 +18,10 @@
 
   <div class="container">
     <div class="jumbotron">
+
       <h1>Magnus Opus  - All vendors</h1>
       <h3>All different types of cuisine to fulfill our customer's needs</h3>
+
       <hr>
       <a href="/searchvendors" class="btn btn-danger btn-lg">
         <span class="fa fa-eye"></span> Search Vendors</a>
@@ -42,16 +46,19 @@
     </div>
   </div>
 
+
 <script>
 // Code here handles what how the page displays all of the vendors
 // It pings the server. The server then pings the database and displays all of the vendors.
 
 // make a get request to our api to grab every vendors
+
 $.get("/api/vendors", function(data) {
 
 // for each character that our server sends us back
 for (var i = 0; i < data.length; i++) {
   // create a parent div for the oncoming elements
+
   var vendorSection = $("<div>");
   // add a class to this div: 'well'
   vendorSection.addClass("well");
@@ -74,7 +81,40 @@ for (var i = 0; i < data.length; i++) {
 });
 
 </script>
+=======
+  var wellSection = $("<div>");
+  // add a class to this div: 'well'
+  wellSection.addClass("well");
+  // add an id to the well to mark which well it is
+  wellSection.attr("id", "vendor-well-" + i);
+  // append the well to the well section
+  $("#well-section").append(wellSection);
+
+  // Now add all of our character data to the well we just placed on the page
+
+
+  $("#vendor-well-" + i).append("<h2>" + data[i].name + "</h2>");
+
+  $("#vendor-well-" + i).append("<h3>Description: " + data[i].description + "</h4>");
+
+  $("#vendor-well-" + i).append("<h3>Option 1: " + data[i].option1 + "</h4>");
+
+  $("#vendor-well-" + i).append("<h3>Option 2: " + data[i].option2 + "</h4>");
+
+  $("#vendor-well-" + i).append("<h3>Option 3: " + data[i].option3 + "</h4>");
+
+  $("#vendor-well-" + i).append("<h3>Option 4: " + data[i].option4 + "</h4>");
+
+  $("#vendor-well-" + i).append("<h3>Option 5: " + data[i].option5 + "</h4>");
+}
+});
+
+
+  
+  </script>
+
 
 </body>
 
 </html>
+

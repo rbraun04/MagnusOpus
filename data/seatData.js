@@ -10,25 +10,33 @@ var seatArray = [
     customerName: "Ahmed",
     customerEmail: "ahmed@example.com",
     licenseID: "AE89AKD",
-    phoneNumber: "000-000-0000"
+    phoneNumber: "000-000-0000",
+    carMake: "Toyota",
+    carModel: "Supra"
   },
   {
     customerName: "Aidan",
     customerEmail: "aidan@example.com",
     licenseID: "FIDL938",
-    phoneNumber: "000-000-0000"
+    phoneNumber: "000-000-0000",
+    carMake: "Honda",
+    carModel: "Civic"
   },
   {
     customerName: "Chris",
     customerEmail: "chris@example.com",
     licenseID: "CLKJ808",
-    phoneNumber: "000-000-0000"
+    phoneNumber: "000-000-0000",
+    carMake: "Subaru",
+    carModel: "Frontier"
   },
   {
     customerName: "James",
     customerEmail: "james@example.com",
     licenseID: "KJKD007",
-    phoneNumber: "000-000-0000"
+    phoneNumber: "000-000-0000",
+    carMake: "Nissan",
+    carModel: "GTR"
   },
 ];
 

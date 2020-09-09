@@ -2,7 +2,9 @@ const router = require("express").Router();
 var seatData = require("../data/seatData");
 var waitListData = require("../data/waitinglistData");
 
+
 const db = require("../models");
+
 
 
   // API GET Requests
@@ -81,15 +83,55 @@ router.get("/api/vendors/:vendor", function(req, res) {
   
     console.log(newVendor);
   
-    vendors.push(newVendor);
+    Vendors.push(newVendor);
   
     res.json(newVendor);
   });
 
+
   router.get("/api/seed/vendor", (req, res) => {
-    db.Vendors.bulkCreate(seatData)
+    db.vendor.bulkCreate(seatData)
     then(response => res.json("vendors seeded!"));
   })
 
+
+  router.get("/api/seed/ticketing", (req,res)=> {
+    db.ticket.bulkCreate(seatData)
+    .then(response => res.json("ticketing seeded!"))
+  })
+
+
+  //dummy routes
+
+  router.post("/dummy/ticket", (req,res)=> {
+    db.ticket.create({
+      customerName: "Richard",
+      customerEmail: "richard@richard.com",
+      customerlicenseID: "E298HD",
+      carMake: "Bugatti",
+      carModel: "Chiron",
+      reservationNumber: 3
+    })
+  })
+
+  router.post("/dummy/vendor", (req,res)=> {
+    db.vendor.create({
+      name: "Ryan",
+      description: "ryan@ryan.com",
+      option1: "burger",
+      option2: "sphagetti",
+      option3: "tuna salad",
+      option4: "macaroni",
+      option5: "fries",
+      ticketId: 3
+    })
+  })
+
+  router.get("/api/ticket/:id", (req,res)=> {
+    db.ticket.findOne({
+      where: {id:req.params.id},
+      include: db.vendor
+    }).then(data=> res.json(data))
+  })
 
   module.exports = router;

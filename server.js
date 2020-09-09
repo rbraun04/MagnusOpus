@@ -5,7 +5,6 @@ require("dotenv").config()
 const db = require("./models")
 const apiRoutes = require("./routes/api-routes");
 const htmlRoutes = require("./routes/html-routes");
-
 // Sets up the Express App
 // =============================================================
 var app = express();

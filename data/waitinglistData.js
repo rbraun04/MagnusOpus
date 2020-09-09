@@ -11,8 +11,8 @@ var waitingArray = [
     customerEmail: "saima@example.com",
     licenseID: "saimaCool",
     phoneNumber: "000-000-0000",
-    carMake: "Nissan",
-    carModel: "Rogue"
+    carMake: "Volkswagen",
+    carModel: "Beetle",
   }
 ];
 

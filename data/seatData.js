@@ -13,7 +13,6 @@ var seatArray = [
     phoneNumber: "000-000-0000",
     carMake: "Toyota",
     carModel: "Supra"
-
   },
   {
     customerName: "Aidan",
@@ -22,7 +21,6 @@ var seatArray = [
     phoneNumber: "000-000-0000",
     carMake: "Honda",
     carModel: "Civic"
-
   },
   {
     customerName: "Chris",
@@ -31,8 +29,6 @@ var seatArray = [
     phoneNumber: "000-000-0000",
     carMake: "Subaru",
     carModel: "Frontier"
-    carMake: "Nissan",
-    carModel: "GTR",
   },
   {
     customerName: "James",
@@ -41,7 +37,6 @@ var seatArray = [
     phoneNumber: "000-000-0000",
     carMake: "Nissan",
     carModel: "GTR"
-
   },
 ];
 

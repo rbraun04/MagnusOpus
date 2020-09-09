@@ -1,6 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
     const Vendors = sequelize.define("vendor", {
-        name: {
             name: {
                 type: DataTypes.STRING,
                 allowNull: false
@@ -29,15 +28,15 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false
             }
-        }
     })
 
 
-    Vendor.associate = function(models){
-        Vendors.belongsToMany(models.Ticketing, {
-
-            foreignKey: {
-                name: "reservationNumber"
+    Vendors.associate = function(models){
+        Vendors.belongsToMany(models.Tickets, {
+            through: {
+                foreignKey: {
+                    name: "reservationNumber"
+                },
             }
         })
     }

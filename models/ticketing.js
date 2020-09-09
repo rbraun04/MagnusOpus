@@ -1,6 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
     const Tickets = sequelize.define("ticketing", {
-        name: {
             menuSelection: {
                 type: DataTypes.STRING,
                 allowNull: true
@@ -25,10 +24,9 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-        }
     })
     Tickets.associate = function(models){
-        Tickets.hasOne(models.Vendor)
+        Tickets.hasOne(models.Vendors)
     }
     return Tickets;
 }

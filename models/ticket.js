@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Tickets = sequelize.define("tickets", {
+    const Ticket = sequelize.define("ticket", {
             menuSelection: {
                 type: DataTypes.STRING,
                 allowNull: true
@@ -24,12 +24,17 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false
             },
+            reservationNumber: {
+                type: DataTypes.STRING,
+                allowNull: true
+            }
     })
-    Tickets.associate = function(models){
-        Tickets.hasMany(models.Vendors, {
+    Ticket.associate = function(models){
+        console.log(models)
+        Ticket.hasMany(models.vendor, {
             onDelete:"cascade"
         })
     }
-    return Tickets;
+    return Ticket;
 }
 

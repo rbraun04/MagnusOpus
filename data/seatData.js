@@ -12,7 +12,8 @@ var seatArray = [
     licenseID: "AE89AKD",
     phoneNumber: "000-000-0000",
     carMake: "Toyota",
-    carModel: "Supra",
+    carModel: "Supra"
+
   },
   {
     customerName: "Aidan",
@@ -20,13 +21,16 @@ var seatArray = [
     licenseID: "FIDL938",
     phoneNumber: "000-000-0000",
     carMake: "Honda",
-    carModel: "Civic",
+    carModel: "Civic"
+
   },
   {
     customerName: "Chris",
     customerEmail: "chris@example.com",
     licenseID: "CLKJ808",
     phoneNumber: "000-000-0000",
+    carMake: "Subaru",
+    carModel: "Frontier"
     carMake: "Nissan",
     carModel: "GTR",
   },
@@ -35,8 +39,9 @@ var seatArray = [
     customerEmail: "james@example.com",
     licenseID: "KJKD007",
     phoneNumber: "000-000-0000",
-    carMake: "Subaru",
-    carModel: "Impressa",
+    carMake: "Nissan",
+    carModel: "GTR"
+
   },
 ];
 

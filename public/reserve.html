@@ -49,10 +49,6 @@
                 <input type="text" class="form-control" id="reserve-name">
               </div>
               <div class="form-group">
-                <label for="reserve-phone">Phone Number</label>
-                <input type="text" class="form-control" id="reserve-phone">
-              </div>
-              <div class="form-group">
                 <label for="reserve-email">Email</label>
                 <input type="text" class="form-control" id="reserve-email">
               </div>
@@ -68,7 +64,11 @@
                 <label for="reserve-license-id">Car Model</label>
                 <input type="text" class="form-control" id="reserve-car-model">
               </div>
-              <button type="submit" class="btn btn-primary submit">Submit</button>
+              <div class="form-group">
+                <label for="reserve">Reservation Number</label>
+                <input type="text" class="form-control" id="reserve-number">
+              </div>
+              <button type="submit" class="btn btn-primary submit" id="submit">Submit</button>
             </form>
           </div>
         </div>
@@ -97,17 +97,17 @@
   // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
   // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
 
-  $(".submit").on("click", function(event) {
+  $("#submit").on("click", function(event) {
     event.preventDefault();
 
     // Here we grab the form elements
     var newReservation = {
       customerName: $("#reserve-name").val().trim(),
-      phoneNumber: $("#reserve-phone").val().trim(),
       customerEmail: $("#reserve-email").val().trim(),
-      licenseID: $("#reserve-license-id").val().trim(),
+      customerlicenseID: $("#reserve-license-id").val().trim(),
       carMake: $("#reserve-car-make").val().trim(),
       carModel: $("#reserve-car-model").val().trim(),
+      reservationNumber: $("#reserve-number").val().trim(),
     };
     
     console.log(newReservation);
@@ -132,11 +132,12 @@
 
         // Clear the form when submitting
         $("#reserve-name").val("");
-        $("#reserve-phone").val("");
         $("#reserve-email").val("");
         $("#reserve-license-id").val("");
         $("#reserve-car-make").val("");
         $("#reserve-car-model").val("");
+        $("#reserve-number").val("");
+        
 
       });
 

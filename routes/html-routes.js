@@ -43,9 +43,9 @@ router.get("/api/vendors", function(req, res) {
   });
 
   // If no matching route is found default to home
-  router.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/tickets.html"));
-  });
+  // router.get("*", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/tickets.html"));
+  // });
   
 
 module.exports = router;

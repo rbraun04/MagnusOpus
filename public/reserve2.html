@@ -161,11 +161,11 @@
       // Here we grab the form elements
       var newReservation = {
         customerName: $("#reserve-name").val().trim(),
-        phoneNumber: $("#reserve-phone").val().trim(),
         customerEmail: $("#reserve-email").val().trim(),
         licenseID: $("#reserve-license-id").val().trim(),
         carMake: $("#reserve-car-make").val().trim(),
         carModel: $("#reserve-car-model").val().trim(),
+        reservationNumber: $("#reserve-number").val().trim(),
       };
       
       console.log(newReservation);
@@ -190,11 +190,11 @@
   
           // Clear the form when submitting
           $("#reserve-name").val("");
-          $("#reserve-phone").val("");
           $("#reserve-email").val("");
           $("#reserve-license-id").val("");
           $("#reserve-car-make").val("");
           $("#reserve-car-model").val("");
+          $("#reserve-number").val("");
   
         });
   

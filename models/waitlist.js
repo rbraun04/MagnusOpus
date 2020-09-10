@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
             reservationNumber: {
                 type: DataTypes.STRING,
                 allowNull: true
-            }
+            },
     })
     Waitlist.associate = function(models){
         console.log(models)

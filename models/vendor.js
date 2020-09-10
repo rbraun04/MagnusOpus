@@ -45,4 +45,3 @@ module.exports = (sequelize, DataTypes) => {
 
     return Vendor;
 }
-

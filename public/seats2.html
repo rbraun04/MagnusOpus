@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Reserve</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;1,100&display=swap" rel="stylesheet">
+    
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../public/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../public/css/style2.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+  <nav class="black" role="navigation">
+    <div class="nav-wrapper container header">
+      <a id="logo-container" href="#" class="brand-logo white-text font">Ticket Reserveations</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#" class = "white-text font">Home</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Home</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div id="index-banner " class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center deep-purple-text text-lighten-2 font">Moonlight</h1>
+        <div class="row center">
+            <a id="logo-container" href="/seats" class="brand-logo white-text font">View Reserved Seats</a>
+          <h5 class="header col s12 light"></h5>
+        </div>
+        
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax slider">
+      <img src="../images/moonlight-1024x500.jpg" alt="Unsplashed background img 1">
+      
+    </div>
+  </div>
+
+
+  <div class="container black ">
+    
+    <div class="section hero">
+
+      <!--   Add Vendors Section   -->
+      <div class="col s12 m7">
+        <h2 class="header white-text font">Current Reservations</h2>
+        <div class="card horizontal">
+          <div class="card-stacked">
+            <div class="card-content black white-text font" id="seatList">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m7">
+        <h2 class="header white-text font">Waiting List:</h2>
+        <div class="card horizontal">
+          <div class="card-stacked">
+            <div class="card-content black white-text font" id="waitList">
+          </div>
+        </div>
+      </div>
+    </div>
+          
+        </form>
+      </div>
+    </div>
+</div>
+
+<div class = "x">
+    <div class="container">
+        <p>Control Panel</p>
+        <p><a href="#" id="clear">Clear Seat</a> | <a href="/api/seats">API Seats Link</a> | <a href="/api/waitlist">API
+            Wait List</a>
+      </div>
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light"></h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax "><img src="../images/Moonlight-TIFF-2016.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+</div>
+
+  <div class="container black">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4 class = "white-text font">Contact Us</h4>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="page-footer deep-purple">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text font">Company Bio</h5>
+          <p class="grey-text text-lighten-4 font">We are a team of students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+        
+  
+  </footer>
+
+
+<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS LOADED FROM OUR SERVER -->
+<script type="text/javascript">
+
+    // In this code, jQuery is used to "download" the data from our server
+    // We then dynamically display this content in our table. This is very similar to the group projects you just completed.
+    // It's also very similar to the NYT search application. In fact, I copied a ton of code from there.
+  
+    function runSeatQuery() {
+      console.log("works?")
+      // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+      $.ajax({ url: "/api/seats", method: "GET" })
+        .then(function(seatData) {
+  
+          // Here we then log the tableData to console, where it will show up as an object.
+          console.log(seatData);
+          console.log("------------------------------------");
+  
+          // Loop through and display each of the customers
+          for (var i = 0; i < seatData.length; i++) {
+  
+            // Get a reference to the tableList element and populate it with tables
+            var seatList = $("#seatList");
+  
+            // Then display the fields in the HTML (Section Name, Date, URL)
+            var listItem = $("<li class='list-group-item mt-4'>");
+  
+            listItem.append(
+              $("<h2>").text("Seat #00" + (i + 1)),
+              $("<hr>"),
+              $("<h2>").text("Name: " + seatData[i].customerName),
+              $("<h2>").text("Email: " + seatData[i].customerEmail),
+              $("<h2>").text("Phone: " + seatData[i].phoneNumber),
+              $("<h2>").text("License Plate: " + seatData[i].customerlicenseID),
+              $("<h2>").text("Car Make: " + seatData[i].carMake),
+              $("<h2>").text("Car Model: " + seatData[i].carModel),
+              $("<h2>").text("Reservation Number: " + seatData[i].reservationNumber),
+            );
+  
+            seatList.append(listItem);
+          }
+        });
+    }
+  
+    function runWaitListQuery() {
+  
+      // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+      $.ajax({ url: "/api/waitlist", method: "GET" })
+        .then(function(waitData) {
+  
+          // Here we then log the waitlistData to console, where it will show up as an object.
+          // console.log(waitData);
+          console.log("------------------------------------");
+  
+          // Loop through and display each of the customers
+          for (var i = 0; i < waitData.length; i++) {
+  
+            // Get a reference to the waitList element and populate it with tables
+            var waitList = $("#waitList");
+  
+            // Then display the fields in the HTML (Section Name, Date, URL)
+            var listItem = $("<li class='list-group-item mt-4'>");
+  
+            listItem.append(
+              $("<h2>").text("Seat #00" + (i + 1)),
+              $("<hr>"),
+              $("<h2>").text("Name: " + waitData[i].customerName),
+              $("<h2>").text("Email: " + waitData[i].customerEmail),
+              $("<h2>").text("Phone: " + waitData[i].phoneNumber),
+              $("<h2>").text("License Plate: " + waitData[i].customerlicenseID),
+              $("<h2>").text("Car Make: " + waitData[i].carMake),
+              $("<h2>").text("Car Model: " + waitData[i].carModel),
+              $("<h2>").text("Reservation Number: " + waitData[i].reservationNumber),
+            );
+  
+            waitList.append(listItem);
+          }
+        });
+    }
+  
+    // This function resets all of the data in our tables. This is intended to let you restart a demo.
+    function clearSeat() {
+      alert("Clearing...");
+  
+      // Clear the tables on the server and then empty the elements on the client
+      $.ajax({ url: "/api/clear", method: "POST" }).then(function() {
+        $("#waitList").empty();
+        $("#seatList").empty();
+      });
+    }
+  
+    $("#clear").on("click", clearSeat);
+  
+  
+    // Run Queries!
+    // ==========================================
+    runSeatQuery();
+    runWaitListQuery();
+  
+  
+  </script>
+      
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js" integrity="sha512-lJDBw/vKlGO8aIZB8/6CY4lV+EMAL3qzViHid6wXjH/uDrqUl+uvfCROHXAEL0T/bgdAQHSuE68vRlcFHUdrUw==" crossorigin="anonymous"></script>
+  <script src = "../app.js"></script>
+
+  </body>
+</html>

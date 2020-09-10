@@ -44,6 +44,36 @@ section {
 
 }
 
+.section1 {
+    position: fixed;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.container-fluid {
+    /* The image used */
+    
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.firstQuestions {
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    background-color: rgba(65, 19, 105, 0.8);
+    letter-spacing: 10px;
+    font: 400 18px/1.8 "Lato", sans-serif;
+    text-align: center;
+    margin-top: 100px;   
+}
+
 .hero {
     height: 60%;
     width: 80%;
@@ -79,22 +109,22 @@ section {
 
 }
 
-.container {
+.containers {
 	height: 100%;
 	display: flex;
 	align-items: center;
   justify-content: center;
 }
 .animated-word {
-	font-family: Helvetica;
+	font-family: 'Montserrat', sans-serif;
 	letter-spacing: 0.4em;
 	font-weight: 600;
 	font-size: 28px;
 	text-align: center;
 	color: #fbfcff;
   cursor: pointer;
-  max-width: 300px; 
-  width: 200px; 
+  max-width: 500px; 
+  width: 500px; 
   outline: 3px solid;
   outline-color: rgba(71, 126, 232,0.5);
   outline-offset: 20px;

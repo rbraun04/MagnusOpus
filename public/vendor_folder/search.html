@@ -72,8 +72,6 @@
     $("#search-btn").on("click", function() {
       var searchedVendor = $("#vendor-search").val().trim();
 
-      // Using a RegEx Pattern to remove spaces from searchedCharacter
-      // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
       searchedVendor = searchedVendor.replace(/\s+/g, "").toLowerCase();
 
       $.get("/api/vendors/" + searchedVendor, function(data) {

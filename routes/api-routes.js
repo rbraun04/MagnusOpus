@@ -234,7 +234,7 @@ router.post("/api/vendor/select", (req,res)=>{
 //   db.vendor.update({ticketId:req.params.tid}, {where: {
 //     id: req.params.vid
 //   }}).then(()=> res.json("success!"))
-// })
+})
 
 module.exports = router;
 

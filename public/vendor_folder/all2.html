@@ -55,7 +55,7 @@
 
   <div class="container black ">
     
-    <div class="section ">
+    <div class="section hero">
 
       <!--   Add Vendors Section   -->
       <div class="col s12 m7">
@@ -69,9 +69,11 @@
           </div>
         </div>
       </div>
-      
+    </div>
+   </div>
+  </div>   
 
-<div class = "hero">
+<div class = "x">
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
@@ -80,7 +82,7 @@
         </div>
       </div>
     </div>
-    <div class="parallax "><img src="../../images/Moonlight-TIFF-2016.jpg" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="../../images/Moonlight-TIFF-2016.jpg" alt="Unsplashed background img 2"></div>
   </div>
 </div>
 
@@ -108,10 +110,12 @@
         </div>
         
   
-  </footer>
-
-
-  <!--  Scripts-->
+    </footer>
+    
+    
+    <!--  Scripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js" integrity="sha512-lJDBw/vKlGO8aIZB8/6CY4lV+EMAL3qzViHid6wXjH/uDrqUl+uvfCROHXAEL0T/bgdAQHSuE68vRlcFHUdrUw==" crossorigin="anonymous"></script>
   <script>
     // Code here handles what how the page displays all of the vendors
     // It pings the server. The server then pings the database and displays all of the vendors.
@@ -126,8 +130,8 @@
     
     
       var wellSection = $("<div>");
-      // add a class to this div: 'well'
-      wellSection.addClass("well");
+        // add a class to this div: 'well'
+        wellSection.addClass("well");
       // add an id to the well to mark which well it is
       wellSection.attr("id", "vendor-well-" + i);
       // append the well to the well section
@@ -157,10 +161,8 @@
       
       </script>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js" integrity="sha512-lJDBw/vKlGO8aIZB8/6CY4lV+EMAL3qzViHid6wXjH/uDrqUl+uvfCROHXAEL0T/bgdAQHSuE68vRlcFHUdrUw==" crossorigin="anonymous"></script>
+  <script src="../../js/materialize.js"></script>
+  <script src="../../js/init.js"></script>
   <script src = "../app.js"></script>
 
   </body>

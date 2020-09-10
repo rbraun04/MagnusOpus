@@ -1,6 +1,7 @@
 const router = require("express").Router();
 var seatData = require("../data/seatData");
 var waitListData = require("../data/waitinglistData");
+var vendorData = require("../data/vendorData");
 
 
 const db = require("../models");
@@ -12,14 +13,6 @@ const db = require("../models");
 // In each of the below cases when a user visits a link
 // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
 // ---------------------------------------------------------------------------
-
-router.get("/api/seats", function (req, res) {
-  res.json(seatData);
-});
-
-router.get("/api/waitlist", function (req, res) {
-  res.json(waitListData);
-});
 
 // API POST Requests
 // Below code handles when a user submits a form and thus submits data to the server.
@@ -50,6 +43,7 @@ router.post("/api/clear", function (req, res) {
   // Empty out the arrays of data
   seatData.length = 0;
   waitListData.length = 0;
+  vendorData.length = 0;
 
   res.json({
     ok: true
@@ -153,8 +147,8 @@ router.post("/api/vendors", function (req, res) {
 
 
 router.get("/api/seed/vendor", (req, res) => {
-  db.vendor.bulkCreate(seatData)
-  then(response => res.json("vendors seeded!"));
+  db.vendor.bulkCreate(vendorData)
+    .then(response => res.json("vendors seeded!"));
 })
 
 

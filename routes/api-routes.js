@@ -26,13 +26,16 @@ router.post("/api/seats", function (req, res) {
   // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
   // It will do this by sending out the value "true" have a table
   // req.body is available since we're using the body parsing middleware
-  if (seatData.length < 50) {
-    seatData.push(req.body);
-    res.json(true);
-  } else {
-    waitListData.push(req.body);
-    res.json(false);
-  }
+  // if (seatData.length < 50) {
+  //   seatData.push(req.body);
+  //   res.json(true);
+  // } else {
+  //   waitListData.push(req.body);
+  //   res.json(false);
+  // }
+  db.ticket.create(req.body).then(function(results){
+    res.json(results)
+  })
 });
 
 // ---------------------------------------------------------------------------
@@ -133,17 +136,17 @@ router.post("/api/vendors", function (req, res) {
   db.vendor.create(newVendor).then(response => res.json("Vendor has been added"));
 
 
-  router.get("/api/waitlist", (req,res) => {
-    db.waitlist.findAll({}).then(data => res.json(data))
-  })
-
-
-  router.get("/api/seats", (req,res) => {
-    db.ticket.findAll({}).then(data => res.json(data))
-  })
-
+  
 
 });
+router.get("/api/waitlist", (req,res) => {
+  db.ticket.findAll({}).then(data => res.json(data))
+})
+
+
+router.get("/api/seats", (req,res) => {
+  db.ticket.findAll({}).then(data => res.json(data))
+})
 
 
 router.get("/api/seed/vendor", (req, res) => {
@@ -169,7 +172,6 @@ router.get("/api/seed/ticketing", (req, res) => {
       carMake: "Bugatti",
       carModel: "Chiron",
       reservationNumber: 3,
-      phoneNumber: "000-000-0000",
       licenseID: "HJKJ890",
     })
 
@@ -180,7 +182,7 @@ router.post("/api/ticket", (req, res) => {
     customerlicenseID: "E298HD",
     carMake: "Bugatti",
     carModel: "Chiron",
-    reservationNumber: 3
+    reservationNumber: 3,
 
   })
 })

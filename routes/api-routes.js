@@ -13,13 +13,13 @@ const db = require("../models")
   // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
   // ---------------------------------------------------------------------------
 
-  router.get("/api/seats", function(req, res) {
-    res.json(seatData);
-  });
+  // router.get("/api/seats", function(req, res) {
+  //   res.json(seatData);
+  // });
 
-  router.get("/api/waitlist", function(req, res) {
-    res.json(waitListData);
-  });
+  // router.get("/api/waitlist", function(req, res) {
+  //   res.json(waitListData);
+  // });
 
   // API POST Requests
   // Below code handles when a user submits a form and thus submits data to the server.
@@ -29,31 +29,53 @@ const db = require("../models")
   // Then the server saves the data to the tableData array)
   // ---------------------------------------------------------------------------
 
-  router.post("/api/seats", function(req, res) {
-    // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-    // It will do this by sending out the value "true" have a table
-    // req.body is available since we're using the body parsing middleware
-    if (seatData.length < 50) {
-      seatData.push(req.body);
-      res.json(true);
-    }
-    else {
-      waitListData.push(req.body);
-      res.json(false);
-    }
-  });
+  // router.post("/api/seats", function(req, res) {
+  //   // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
+  //   // It will do this by sending out the value "true" have a table
+  //   // req.body is available since we're using the body parsing middleware
+  //   if (seatData.length < 50) {
+  //     seatData.push(req.body);
+  //     res.json(true);
+  //   }
+  //   else {
+  //     waitListData.push(req.body);
+  //     res.json(false);
+  //   }
+  // });
 
   // ---------------------------------------------------------------------------
   // I added this below code so you could clear out the table while working with the functionality.
   // Don"t worry about it!
 
-  router.post("/api/clear", function(req, res) {
-    // Empty out the arrays of data
-    seatData.length = 0;
-    waitListData.length = 0;
+  // router.post("/api/clear", function(req, res) {
+  //   // Empty out the arrays of data
+  //   seatData.length = 0;
+  //   waitListData.length = 0;
 
-    res.json({ ok: true });
+  //   res.json({ ok: true });
+  // });
+  router.get("/api/ticket/:ticket", function(req, res) {
+    var chosen = req.params.vendor;
+  
+    console.log("start here what is this?: ", chosen);
+  
+    for (var i = 0; i < Ticket.length; i++) {
+      if (chosen === Ticket[i].routeName) {
+        return res.json(Ticket[i]);
+      }
+    }
+  
+    return res.json(false);
   });
+
+  router.get("/api/waitlist", (req,res) => {
+    db.waitlist.findAll({}).then(data => res.json(data))
+  })
+
+
+  router.get("/api/seats", (req,res) => {
+    db.ticket.findAll({}).then(data => res.json(data))
+  })
 
 
     // Displays a single vendor, or returns false
@@ -110,7 +132,9 @@ router.get("/api/vendors/:vendor", function(req, res) {
       customerlicenseID: "E298HD",
       carMake: "Bugatti",
       carModel: "Chiron",
-      reservationNumber: 3
+      reservationNumber: 3,
+      phoneNumber: "000-000-0000",
+      licenseID: "HJKJ890",
     })
   })
 
@@ -129,6 +153,13 @@ router.get("/api/vendors/:vendor", function(req, res) {
 
   router.get("/api/ticket/:id", (req,res)=> {
     db.ticket.findOne({
+      where: {id:req.params.id},
+      include: db.vendor
+    }).then(data=> res.json(data))
+  })
+
+  router.get("/api/waitlist/:id", (req,res)=> {
+    db.waitlist.findOne({
       where: {id:req.params.id},
       include: db.vendor
     }).then(data=> res.json(data))

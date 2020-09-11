@@ -65,49 +65,41 @@
             </div>
             <div class="input-field col s6">
               <input placeholder="Phone Number" id="reserve-phone" type="text" class="validate">
-              <label for="vendorDescription"></label>
+              <label for="phoneNumber"></label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input placeholder="E-mail" id="reserve-email" type="password" class="validate">
-              <label for="option1"></label>
+              <input placeholder="E-mail" id="reserve-email" type="text" class="validate">
+              <label for="email"></label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input placeholder="License Plate" id="reserve-license-id" type="email" class="validate">
-              <label for="option2"></label>
+              <input placeholder="License Plate" id="reserve-license-id" type="text" class="validate">
+              <label for="licensePlate"></label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input placeholder="License Plate" id="reserve-car-make" type="email" class="validate">
-              <label for="option3"></label>
+              <input placeholder="Car Make" id="reserve-car-make" type="text" class="validate">
+              <label for="carMake"></label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input placeholder="Car Make" id="reserve-car-make" type="email" class="validate">
-              <label for="option3"></label>
+              <input placeholder="Car Model"id="reserve-car-model" type="text" class="validate">
+              <label for="carModel"></label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input placeholder="Car Model"id="reserve-car-model" type="email" class="validate">
-              <label for="option5"></label>
+              <input placeholder="Reservation Number"id="reserve-number" type="text" class="validate">
+              <label for="reservationNumber"></label>
             </div>
           </div>
-
           <button type="submit" class="btn btn-primary submit" id="submit">Submit</button>
 
-          <div class="row">
-            <div class="input-field col s12">
-              <input placeholder="Reservation Number"id="reserve-number" type="email" class="validate">
-              <label for="option5"></label>
-            </div>
-          </div>
-          <a id="submit" class="brand-logo white-text font">Submit</a>
 
           <br>
           
@@ -164,13 +156,15 @@
     // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
   
     $(".submit").on("click", function(event) {
+      console.log("submit is being captured");
       event.preventDefault();
   
       // Here we grab the form elements
       var newReservation = {
-        customerName: $("#reserve-name").val().trim(),
+        customerName: $("#reserve-Name").val().trim(),
+        customerPhoneNumber: $("#reserve-phone").val().trim(),
         customerEmail: $("#reserve-email").val().trim(),
-        licenseID: $("#reserve-license-id").val().trim(),
+        customerlicenseID: $("#reserve-license-id").val().trim(),
         carMake: $("#reserve-car-make").val().trim(),
         carModel: $("#reserve-car-model").val().trim(),
         reservationNumber: $("#reserve-number").val().trim(),
@@ -195,7 +189,7 @@
           else {
             alert("Sorry you are on the wait list");
           }
-  
+
           // Clear the form when submitting
           $("#reserve-name").val("");
           $("#reserve-email").val("");

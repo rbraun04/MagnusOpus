@@ -58,45 +58,17 @@ router.post("/api/clear", function (req, res) {
 router.get("/api/vendors/:vendor", function (req, res) {
   var chosen = req.params.vendor;
 
-
-  // router.get("/api/seats", function(req, res) {
-  //   res.json(seatData);
-  // });
-
-  // router.get("/api/waitlist", function(req, res) {
-  //   res.json(waitListData);
-  // });
-
-  // API POST Requests
-  // Below code handles when a user submits a form and thus submits data to the server.
-  // In each of the below cases, when a user submits form data (a JSON object)
-  // ...the JSON is pushed to the appropriate JavaScript array
-  // (ex. User fills out a reservation request... this data is then sent to the server...
-  // Then the server saves the data to the tableData array)
-  // ---------------------------------------------------------------------------
-
-  // router.post("/api/seats", function(req, res) {
-  //   // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-  //   // It will do this by sending out the value "true" have a table
-  //   // req.body is available since we're using the body parsing middleware
-  //   if (seatData.length < 50) {
-  //     seatData.push(req.body);
-  //     res.json(true);
-  //   }
-  //   else {
-  //     waitListData.push(req.body);
-  //     res.json(false);
-  //   }
-  // });
-
   console.log("vendors", chosen);
-  db.vendor.findAll().then(vendors => {
-      res.json(vendors.filter(vendor => {
-        const regex = new RegExp(chosen, "gi");
-        return regex.test(vendor.name.toLowerCase().replace(/ /, ""))
-      })[0])
+  db.vendor.findAll({where: {
+    name: chosen
+  }}).then(vendors => {
+    res.json(vendors);
+      // res.json(vendors.filter(vendor => {
+      //   const regex = new RegExp(chosen, "gi");
+      //   return regex.test(vendor.name.toLowerCase().replace(/ /, ""))
+      // })[0])
     })
-    .catch(err => res.json(null))
+
 });
 
 // Create New Vendors - takes in JSON input
@@ -104,19 +76,13 @@ router.post("/api/vendors", function (req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
   var newVendor = req.body;
+  console.log(newVendor);
+
+  db.vendor.create(newVendor).then(response => res.json("Vendor has been added"));
+
+});
 
 
-  // Using a RegEx Pattern to remove spaces from newVendor
-  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-
-
-  // router.post("/api/clear", function(req, res) {
-  //   // Empty out the arrays of data
-  //   seatData.length = 0;
-  //   waitListData.length = 0;
-
-  //   res.json({ ok: true });
-  // });
   router.get("/api/ticket/:ticket", function(req, res) {
     var chosen = req.params.vendor;
   
@@ -131,14 +97,9 @@ router.post("/api/vendors", function (req, res) {
     return res.json(false);
   });
 
-  console.log(newVendor);
-
-  db.vendor.create(newVendor).then(response => res.json("Vendor has been added"));
 
 
-  
 
-});
 router.get("/api/waitlist", (req,res) => {
   db.ticket.findAll({}).then(data => res.json(data))
 })
@@ -164,7 +125,7 @@ router.get("/api/seed/ticketing", (req, res) => {
 //dummy routes
 
 
-  router.post("/dummy/ticket", (req,res)=> {
+router.post("/dummy/ticket", (req,res)=> {
     db.ticket.create({
       customerName: "Richard",
       customerEmail: "richard@richard.com",
@@ -173,7 +134,8 @@ router.get("/api/seed/ticketing", (req, res) => {
       carModel: "Chiron",
       reservationNumber: 3,
       licenseID: "HJKJ890",
-    })
+    });
+  });
 
 router.post("/api/ticket", (req, res) => {
   db.ticket.create(req.body || {
@@ -185,6 +147,11 @@ router.post("/api/ticket", (req, res) => {
     reservationNumber: 3,
 
   })
+  res.json(req.body);
+});
+
+router.post("/api/test", (req,res) => {
+  console.log(req.body)
 })
 
 router.post("/dummy/vendor", (req, res) => {
@@ -206,9 +173,6 @@ router.post("/dummy/vendor", (req, res) => {
       include: db.vendor
     }).then(data=> res.json(data))
   })
-
-  module.exports = router;
-
 })
 
 router.get("/api/ticket/:id", (req, res) => {
@@ -228,9 +192,11 @@ router.post("/api/vendor/select", (req,res)=>{
 //proper way to setup using update, and many to many relationship between a vendor entry and multiple users
 // router.put("/api/vendor/select/:vid/:tid", (req,res)=>{
 //   db.vendor.update({ticketId:req.params.tid}, {where: {
-//     id: req.params.vid
-//   }}).then(()=> res.json("success!"))
-})
+// //     id: req.params.vid
+// //   }}).then(()=> res.json("success!"))
+// })
+
+
 
 module.exports = router;
 

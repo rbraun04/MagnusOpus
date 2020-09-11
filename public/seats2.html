@@ -36,7 +36,7 @@
         <br><br>
         <h1 class="header center deep-purple-text text-lighten-2 font">Moonlight</h1>
         <div class="row center">
-            <a id="logo-container" href="/seats" class="brand-logo white-text font">View Reserved Seats</a>
+            <a id="logo-container" href="/reserve2" class="brand-logo white-text font">Make a Reservation</a>
           <h5 class="header col s12 light"></h5>
         </div>
         
@@ -83,7 +83,7 @@
 <div class = "x">
     <div class="container">
         <p>Control Panel</p>
-        <p><a href="#" id="clear">Clear Seat</a> | <a href="/api/seats">API Seats Link</a> | <a href="/api/waitlist">API
+        <p><a href="#" id="clear">Clear Seat</a> | <a href="/api/seats2">API Seats Link</a> | <a href="/api/waitlist">API
             Wait List</a>
       </div>
   <div class="parallax-container valign-wrapper">
@@ -135,7 +135,7 @@
     function runSeatQuery() {
       console.log("works?")
       // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-      $.ajax({ url: "/api/seats", method: "GET" })
+      $.ajax({ url: "/api/seats2", method: "GET" })
         .then(function(seatData) {
   
           // Here we then log the tableData to console, where it will show up as an object.

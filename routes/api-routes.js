@@ -42,17 +42,6 @@ router.post("/api/seats2", function (req, res) {
 // I added this below code so you could clear out the table while working with the functionality.
 // Don"t worry about it!
 
-router.post("/api/clear", function (req, res) {
-  // Empty out the arrays of data
-  seatData.length = 0;
-  waitListData.length = 0;
-  vendorData.length = 0;
-
-  res.json({
-    ok: true
-  });
-});
-
 
 // Displays a single vendor, or returns false
 router.get("/api/vendors/:vendor", function (req, res) {
@@ -82,6 +71,12 @@ router.post("/api/vendors", function (req, res) {
 
 });
 
+router.delete("/api/clear", async function (req, res){
+  await db.ticket.destroy({
+    truncate: {cascade: true}
+  });
+  res.json("You've deleted!")
+})
 
 
 

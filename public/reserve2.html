@@ -60,54 +60,45 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <input placeholder="Name" id="reserve-Name" type="text" class="validate">
+              <input placeholder="Name" id="reserve-name" type="text" class="validate">
               <label for="name"></label>
             </div>
             <div class="input-field col s6">
               <input placeholder="Phone Number" id="reserve-phone" type="text" class="validate">
-              <label for="vendorDescription"></label>
+              <label for="phoneNumber"></label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input placeholder="E-mail" id="reserve-email" type="password" class="validate">
-              <label for="option1"></label>
+              <input placeholder="E-mail" id="reserve-email" type="email" class="validate">
+              <label for="customerEmail"></label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input placeholder="License Plate" id="reserve-license-id" type="email" class="validate">
-              <label for="option2"></label>
+              <input placeholder="License Plate" id="reserve-license-id" type="text" class="validate">
+              <label for="customerlicenseID"></label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input placeholder="License Plate" id="reserve-car-make" type="email" class="validate">
-              <label for="option3"></label>
+              <input placeholder="Car Make" id="reserve-car-make" type="text" class="validate">
+              <label for="carMake"></label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input placeholder="Car Make" id="reserve-car-make" type="email" class="validate">
-              <label for="option3"></label>
+              <input placeholder="Car Model"id="reserve-car-model" type="text" class="validate">
+              <label for="carModel"></label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input placeholder="Car Model"id="reserve-car-model" type="email" class="validate">
-              <label for="option5"></label>
+              <input placeholder="Reservation Number"id="reserve-number" type="text" class="validate">
+              <label for="reservationNumber"></label>
             </div>
           </div>
-
-          <button type="submit" class="btn btn-primary submit" id="submit">Submit</button>
-
-          <div class="row">
-            <div class="input-field col s12">
-              <input placeholder="Reservation Number"id="reserve-number" type="email" class="validate">
-              <label for="option5"></label>
-            </div>
-          </div>
-          <a id="submit" class="brand-logo white-text font">Submit</a>
+          <button type="submit" class="submit brand-logo white-text font" id="submit">Submit</button>
 
           <br>
           
@@ -170,7 +161,7 @@
       var newReservation = {
         customerName: $("#reserve-name").val().trim(),
         customerEmail: $("#reserve-email").val().trim(),
-        licenseID: $("#reserve-license-id").val().trim(),
+        customerlicenseID: $("#reserve-license-id").val().trim(),
         carMake: $("#reserve-car-make").val().trim(),
         carModel: $("#reserve-car-model").val().trim(),
         reservationNumber: $("#reserve-number").val().trim(),

@@ -22,7 +22,7 @@ const db = require("../models");
 // Then the server saves the data to the tableData array)
 // ---------------------------------------------------------------------------
 
-router.post("/api/seats", function (req, res) {
+router.post("/api/seats2", function (req, res) {
   // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
   // It will do this by sending out the value "true" have a table
   // req.body is available since we're using the body parsing middleware
@@ -30,7 +30,7 @@ router.post("/api/seats", function (req, res) {
   //   seatData.push(req.body);
   //   res.json(true);
   // } else {
-  //   waitListData.push(req.body);
+  //   waitListData.push(req.body);2
   //   res.json(false);
   // }
   db.ticket.create(req.body).then(function(results){
@@ -144,7 +144,7 @@ router.get("/api/waitlist", (req,res) => {
 })
 
 
-router.get("/api/seats", (req,res) => {
+router.get("/api/seats2", (req,res) => {
   db.ticket.findAll({}).then(data => res.json(data))
 })
 

@@ -19,11 +19,13 @@ nav .brand-logo {
 
 .font {
   font-family: 'Montserrat', sans-serif;
+
 }
 
-.smallfont {
+.font2 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 12;
+  color: white;
+  
 }
 
 p {

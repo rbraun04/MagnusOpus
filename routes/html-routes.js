@@ -3,6 +3,10 @@ const path = require("path");
 const db = require("../models")
 // Basic route that sends the user first to the AJAX Page
 
+app.get("/", function(req, res) {
+  res.json(path.join(__dirname, "public/home.html"));
+});
+
 router.get("/vendors", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/vendor_folder/all.html"));
   });

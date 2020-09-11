@@ -20,7 +20,7 @@
     <div class="nav-wrapper container header">
       <a id="logo-container" href="#" class="brand-logo white-text font">Vendor Information</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/vendors" class = "white-text font">Home</a></li>
+        <li><a href="/home" class = "white-text font">Home</a></li>
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="parallax slider">
-      <img src="../../images/moonlight-1024x500.jpg" alt="Unsplashed background img 1">
+      <img src="../images/moonlight-1024x500.jpg" alt="Unsplashed background img 1">
       
     </div>
   </div>
@@ -98,7 +98,7 @@
               <label for="option5"></label>
             </div>
           </div>
-          <button id="add-btn" class="brand-logo white-text font">Add Vendor</button>
+          <a id="add-btn" class="brand-logo white-text font btn">Add Vendor</a>
           
           
         </form>
@@ -115,7 +115,7 @@
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="../../images/Moonlight-TIFF-2016.jpg" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="../images/Moonlight-TIFF-2016.jpg" alt="Unsplashed background img 2"></div>
   </div>
 </div>
 
@@ -149,6 +149,9 @@
 
 
   <!--  Scripts-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js" integrity="sha512-lJDBw/vKlGO8aIZB8/6CY4lV+EMAL3qzViHid6wXjH/uDrqUl+uvfCROHXAEL0T/bgdAQHSuE68vRlcFHUdrUw==" crossorigin="anonymous"></script>
+  
   <script type="text/javascript">
     // Question: What does this code do?
     $("#add-btn").on("click", function(event) {
@@ -172,11 +175,9 @@
     });
   </script>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="/js/materialize.js"></script>
-  <script src="/js/init.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js" integrity="sha512-lJDBw/vKlGO8aIZB8/6CY4lV+EMAL3qzViHid6wXjH/uDrqUl+uvfCROHXAEL0T/bgdAQHSuE68vRlcFHUdrUw==" crossorigin="anonymous"></script>
-  <script src = "/app.js"></script>
-
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
+  <script src = "../app.js"></script>
+  
   </body>
 </html>

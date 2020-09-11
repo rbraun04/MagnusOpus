@@ -21,6 +21,11 @@ nav .brand-logo {
   font-family: 'Montserrat', sans-serif;
 }
 
+.smallfont {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12;
+}
+
 p {
   line-height: 2rem;
 }

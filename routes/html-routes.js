@@ -12,7 +12,34 @@ router.get("/searchvendors", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/vendor_folder/search.html"));
 });
 
-
+router.get("/login", (req, res) => {
+  // If the user already has an account send them to the members page
+  if (req.user) {
+    res.redirect("/members");
+  }
+  res.sendFile(path.join(__dirname, "../public/vendorSignUp.html"));
+});
+router.get("/home", (req, res) => {
+  // If the user already has an account send them to the members page
+  if (req.user) {
+    res.redirect("/members");
+  }
+  res.sendFile(path.join(__dirname, "../public/home.html"));
+});
+router.get("/start", (req, res) => {
+  // If the user already has an account send them to the members page
+  if (req.user) {
+    res.redirect("/members");
+  }
+  res.sendFile(path.join(__dirname, "../public/start.html"));
+});
+router.get("/ticketlogin", (req, res) => {
+  // If the user already has an account send them to the members page
+  if (req.user) {
+    res.redirect("/members");
+  }
+  res.sendFile(path.join(__dirname, "../public/ticketsSignUp.html"));
+});
   
 router.get("/addvendors", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/vendor_folder/add.html"));

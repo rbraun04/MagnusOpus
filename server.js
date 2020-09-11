@@ -30,6 +30,6 @@ app.use(htmlRoutes);
 
 // Starts the server to begin listening
 // =============================================================
-db.sequelize.sync({force: true}).then(() => app.listen(PORT, function() {
+db.sequelize.sync({force: false}).then(() => app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 }));

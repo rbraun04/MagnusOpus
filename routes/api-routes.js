@@ -83,19 +83,6 @@ router.post("/api/vendors", function (req, res) {
 });
 
 
-  router.get("/api/ticket/:ticket", function(req, res) {
-    var chosen = req.params.vendor;
-  
-    console.log("start here what is this?: ", chosen);
-  
-    for (var i = 0; i < Ticket.length; i++) {
-      if (chosen === Ticket[i].routeName) {
-        return res.json(Ticket[i]);
-      }
-    }
-  
-    return res.json(false);
-  });
 
 
 
@@ -185,16 +172,16 @@ router.get("/api/ticket/:id", (req, res) => {
 })
 
 //cheating way - create a new entry to associate with each ticket
-router.post("/api/vendor/select", (req,res)=>{
-  db.vendor.create(req.body).then(()=> res.json("success!"))
-})
+// router.post("/api/vendor/select", (req,res)=>{
+//   db.vendor.create(req.body).then(()=> res.json("success!"))
+// })
 
 //proper way to setup using update, and many to many relationship between a vendor entry and multiple users
-// router.put("/api/vendor/select/:vid/:tid", (req,res)=>{
-//   db.vendor.update({ticketId:req.params.tid}, {where: {
-// //     id: req.params.vid
-// //   }}).then(()=> res.json("success!"))
-// })
+router.put("/api/vendor/select/:vid/:tid", (req,res)=>{
+  db.vendor.update({ticketId:req.params.tid}, {where: {
+    id: req.params.vid
+ }}).then(()=> res.json("success!"))
+})
 
 
 

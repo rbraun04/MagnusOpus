@@ -98,6 +98,7 @@
             $("<hr>"),
             $("<h2>").text("Name: " + seatData[i].customerName),
             $("<h2>").text("Email: " + seatData[i].customerEmail),
+            $("<h2>").text("Phone: " + seatData[i].phoneNumber),
             $("<h2>").text("License Plate: " + seatData[i].customerlicenseID),
             $("<h2>").text("Car Make: " + seatData[i].carMake),
             $("<h2>").text("Car Model: " + seatData[i].carModel),
@@ -114,7 +115,7 @@
     // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
     $.ajax({ url: "/api/waitlist", method: "GET" })
       .then(function(waitData) {
-          console.log(waitData)
+
         // Here we then log the waitlistData to console, where it will show up as an object.
         // console.log(waitData);
         console.log("------------------------------------");
@@ -133,6 +134,7 @@
             $("<hr>"),
             $("<h2>").text("Name: " + waitData[i].customerName),
             $("<h2>").text("Email: " + waitData[i].customerEmail),
+            $("<h2>").text("Phone: " + waitData[i].phoneNumber),
             $("<h2>").text("License Plate: " + waitData[i].customerlicenseID),
             $("<h2>").text("Car Make: " + waitData[i].carMake),
             $("<h2>").text("Car Model: " + waitData[i].carModel),
@@ -161,7 +163,7 @@
   // Run Queries!
   // ==========================================
   runSeatQuery();
-  // runWaitListQuery();
+  runWaitListQuery();
 
 
 </script>

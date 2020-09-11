@@ -69,15 +69,16 @@
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s12">
-              <input placeholder="E-mail" id="reserve-email" type="email" class="validate">
+            <div c              <input placeholder="E-mail" id="reserve-email" type="email" class="validate">
               <label for="customerEmail"></label>
+
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
               <input placeholder="License Plate" id="reserve-license-id" type="text" class="validate">
               <label for="customerlicenseID"></label>
+
             </div>
           </div>
           <div class="row">
@@ -99,6 +100,7 @@
             </div>
           </div>
           <button type="submit" class="submit brand-logo white-text font" id="submit">Submit</button>
+
 
           <br>
           
@@ -155,11 +157,13 @@
     // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
   
     $(".submit").on("click", function(event) {
+      console.log("submit is being captured");
       event.preventDefault();
   
       // Here we grab the form elements
       var newReservation = {
-        customerName: $("#reserve-name").val().trim(),
+        customerName: $("#reserve-Name").val().trim(),
+        customerPhoneNumber: $("#reserve-phone").val().trim(),
         customerEmail: $("#reserve-email").val().trim(),
         customerlicenseID: $("#reserve-license-id").val().trim(),
         carMake: $("#reserve-car-make").val().trim(),
@@ -186,9 +190,10 @@
           else {
             alert("Sorry you are on the wait list");
           }
-  
+
           // Clear the form when submitting
           $("#reserve-name").val("");
+          $("#reserve-phone").val("");
           $("#reserve-email").val("");
           $("#reserve-license-id").val("");
           $("#reserve-car-make").val("");
@@ -200,13 +205,7 @@
     });
   
   </script>
-      // Question: What does this code do??
-      $.post("/api/vendors", newVendor)
-        .then(function(data) {
-          console.log("add.html", data);
-          alert("Adding vendor...");
-        });
-    });
+
   </script>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="/js/materialize.js"></script>

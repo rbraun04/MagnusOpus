@@ -38,6 +38,10 @@ router.get("/api/vendors", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/seats.html"));
   });
 
+  router.get("/seats2", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/seats2.html"));
+  });
+
   router.get("/reserve", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/reserve.html"));
   });

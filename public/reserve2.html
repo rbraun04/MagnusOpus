@@ -192,6 +192,7 @@
 
           // Clear the form when submitting
           $("#reserve-name").val("");
+          $("#reserve-phone").val("");
           $("#reserve-email").val("");
           $("#reserve-license-id").val("");
           $("#reserve-car-make").val("");
@@ -203,13 +204,7 @@
     });
   
   </script>
-      // Question: What does this code do??
-      $.post("/api/vendors", newVendor)
-        .then(function(data) {
-          console.log("add.html", data);
-          alert("Adding vendor...");
-        });
-    });
+
   </script>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="/js/materialize.js"></script>

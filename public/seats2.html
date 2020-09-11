@@ -9,9 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;1,100&display=swap" rel="stylesheet">
     
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="../public/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="../public/css/style2.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/style2.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     
 </head>
@@ -36,7 +36,7 @@
         <br><br>
         <h1 class="header center deep-purple-text text-lighten-2 font">Moonlight</h1>
         <div class="row center">
-            <a id="logo-container" href="/seats" class="brand-logo white-text font">View Reserved Seats</a>
+            <a id="logo-container" href="/reserve2" class="brand-logo white-text font">Make a Reservation</a>
           <h5 class="header col s12 light"></h5>
         </div>
         
@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="parallax slider">
-      <img src="../images/moonlight-1024x500.jpg" alt="Unsplashed background img 1">
+      <img src="images/moonlight-1024x500.jpg" alt="Unsplashed background img 1">
       
     </div>
   </div>
@@ -83,7 +83,7 @@
 <div class = "x">
     <div class="container">
         <p>Control Panel</p>
-        <p><a href="#" id="clear">Clear Seat</a> | <a href="/api/seats">API Seats Link</a> | <a href="/api/waitlist">API
+        <p><a href="#" id="clear">Clear Seat</a> | <a href="/api/seats2">API Seats Link</a> | <a href="/api/waitlist">API
             Wait List</a>
       </div>
   <div class="parallax-container valign-wrapper">
@@ -94,7 +94,7 @@
         </div>
       </div>
     </div>
-    <div class="parallax "><img src="../images/Moonlight-TIFF-2016.jpg" alt="Unsplashed background img 2"></div>
+    <div class="parallax "><img src="images/Moonlight-TIFF-2016.jpg" alt="Unsplashed background img 2"></div>
   </div>
 </div>
 
@@ -135,7 +135,7 @@
     function runSeatQuery() {
       console.log("works?")
       // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-      $.ajax({ url: "/api/seats", method: "GET" })
+      $.ajax({ url: "/api/seats2", method: "GET" })
         .then(function(seatData) {
   
           // Here we then log the tableData to console, where it will show up as an object.
@@ -227,11 +227,11 @@
   </script>
       
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="../js/materialize.js"></script>
-  <script src="../js/init.js"></script>
+  <script src="/js/materialize.js"></script>
+  <script src="/js/init.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js" integrity="sha512-lJDBw/vKlGO8aIZB8/6CY4lV+EMAL3qzViHid6wXjH/uDrqUl+uvfCROHXAEL0T/bgdAQHSuE68vRlcFHUdrUw==" crossorigin="anonymous"></script>
-  <script src = "../app.js"></script>
+  <script src = "app.js"></script>
 
   </body>
 </html>

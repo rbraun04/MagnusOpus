@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "../ucla-la-fsf-ft-07-2020-u-c/14-Full-Stack/01-Activities/07-ORM-To-Sequelize"
+		},
+		{
+			"path": "../ucla-la-fsf-ft-07-2020-u-c/14-Full-Stack/01-Activities/04-StarWars"
+		},
+		{
+			"path": "../ucla-la-fsf-ft-07-2020-u-c/14-Full-Stack/01-Activities/05-SequelizeLibrary"
+		},
+		{
+			"path": "../ucla-la-fsf-ft-07-2020-u-c/14-Full-Stack/01-Activities/06-SequelizeCLI"
+		},
+		{
+			"path": "../ucla-la-fsf-ft-07-2020-u-c/14-Full-Stack/01-Activities/08-Sequelize-Create-Read"
+		},
+		{
+			"path": "../ucla-la-fsf-ft-07-2020-u-c/14-Full-Stack/01-Activities/09-Sequelize-Update-Delete"
+		},
+		{
+			"path": "../ucla-la-fsf-ft-07-2020-u-c/14-Full-Stack/01-Activities/10-Sequelize-Validations"
+		}
+	]
+}
